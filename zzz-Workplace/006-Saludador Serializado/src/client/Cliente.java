@@ -18,7 +18,7 @@ public class Cliente {
             								// con clases que llevan implemetado Saludo , son serializables.
             
             ImplementacionTareas tarea =new ImplementacionTareas();
-            String s = (String) comp.ejecutarTarea(tarea);
+            String s = (String) comp.ejecutar(tarea);
             System.out.println(s);
             
         } catch (Exception e) {

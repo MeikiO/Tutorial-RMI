@@ -5,26 +5,24 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
-import common.Tareas;
+import common.Tarea;
 import common.Compute;
+import common.Condicion;
 
 
 
 
 public class Server extends UnicastRemoteObject implements Compute{
 
-    private final String nombre="UNAI";
-    
 
+    protected Server() throws RemoteException {
+		super();
+	}
 
-	public Server() throws RemoteException {} {
-    }
-
-
-    public static void main(String[] args) {
+	public static void main(String[] args) {
         
         try {
-        	String name = "Saludador";
+        	String name = "UrlServer";
             
           //creamos el servidor de nombre
         	Registry registry = LocateRegistry.createRegistry(1099); //establecemos el numero de puerto del servidor de nombre
@@ -41,12 +39,25 @@ public class Server extends UnicastRemoteObject implements Compute{
         }
     }
 
+	@Override
+	public String ejecutar(ImplementacionTareas tarea) throws RemoteException {
+		String mensaje="";
+		
+		mensaje=tarea.urlValido();
+		
+		if(mensaje.equals(Condicion.Ok.getMensaje())) {
+			mensaje=mensaje+"\n HTML completo de URL: \n"+tarea.darTodalaInformacionDelUrl();			
+		}
+		
+		
+		return mensaje;
+	}
+
+
+
     
 
-	@Override
-	public Object ejecutar(Tareas t) throws RemoteException {
-		return t.saludar(this.nombre);
-	}
+
 
 
 }

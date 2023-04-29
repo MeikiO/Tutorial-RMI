@@ -2,8 +2,10 @@ package common;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-import java.rmi.server.RemoteObject;
+
+import engine.ImplementacionTareas;
+
 
 public interface Compute extends Remote {
-	Object ejecutar(Tareas t) throws RemoteException;
+	String ejecutar(ImplementacionTareas tarea) throws RemoteException;
 }
