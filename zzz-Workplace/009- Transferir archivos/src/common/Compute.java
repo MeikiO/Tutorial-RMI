@@ -1,11 +1,11 @@
 package common;
 
+import java.io.FileReader;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 import server.ImplementacionTareas;
 
-
 public interface Compute extends Remote {
-	String ejecutar(ImplementacionTareas tarea) throws RemoteException;
+	public boolean ejecutar(ImplementacionTareas tarea) throws RemoteException;
 }

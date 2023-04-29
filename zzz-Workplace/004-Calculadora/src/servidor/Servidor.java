@@ -15,12 +15,11 @@ public class Servidor{
 
 		try {
         	
-        	CalculadoraImp obj = new CalculadoraImp(); // Inicializamos la clase que implementa el common y extends UnicastRemoteObject 
-            
-        	//creamos el servidor de nombre
-        	Registry registry = LocateRegistry.createRegistry(1099); //establecemos el numero de puerto del servidor de nombre
-            
-        	registry.bind("Operaciones", obj); //le ponemos un identificador al objeto, lo guardamos en el servidor de nombres.
+        	CalculadoraImp obj = new CalculadoraImp(); 
+
+        	Registry registry = LocateRegistry.createRegistry(1099); 
+
+        	registry.bind("Operaciones", obj); 
 
             System.err.println("Server ready");
             

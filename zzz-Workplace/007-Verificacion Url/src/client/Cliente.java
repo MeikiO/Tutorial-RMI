@@ -5,7 +5,7 @@ import java.rmi.registry.Registry;
 
 import common.Compute;
 import common.Tarea;
-import engine.ImplementacionTareas;
+import server.ImplementacionTareas;
 
 
 public class Cliente {
@@ -13,7 +13,7 @@ public class Cliente {
         
         try {
             String name = "UrlServer";
-            String urlSample="https://locallhost.com";
+            String urlSample="h";
             Registry registry = LocateRegistry.getRegistry(1099);
             
             Compute comp = (Compute) registry.lookup(name); 

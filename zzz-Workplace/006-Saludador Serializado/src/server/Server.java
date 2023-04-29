@@ -1,4 +1,4 @@
-package engine;
+package server;
 
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -25,14 +25,13 @@ public class Server extends UnicastRemoteObject implements Compute{
         
         try {
         	String name = "Saludador";
-            
-          //creamos el servidor de nombre
-        	Registry registry = LocateRegistry.createRegistry(1099); //establecemos el numero de puerto del servidor de nombre
+
+            Registry registry = LocateRegistry.createRegistry(1099);  
         	
         	Server obj=new Server();
         	
-        	registry.rebind(name, obj); //le ponemos un identificador al objeto, lo guardamos en el servidor de nombres.
-        								//rebind es directamente para guardar el objeto
+        	registry.rebind(name, obj);  
+        	
             System.err.println("Server ready");
             
         } catch (Exception e) {

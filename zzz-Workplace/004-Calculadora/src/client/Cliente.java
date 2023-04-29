@@ -22,10 +22,10 @@ public class Cliente {
 	
 	public static void main(String[] args) {
 		try {
-	    	//accedemos al servidor de nombres a traves del puerto
+	
         	Registry registry = LocateRegistry.getRegistry(1099);
         	
-            Calculadora stub = (Calculadora) registry.lookup("Operaciones"); //tomamos el objeto con la identificacion que se ha puesto
+            Calculadora stub = (Calculadora) registry.lookup("Operaciones"); 
             
             Cliente programa=new Cliente(stub);
             programa.hacerOperaciones();
