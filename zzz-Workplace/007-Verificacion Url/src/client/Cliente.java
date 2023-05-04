@@ -5,7 +5,6 @@ import java.rmi.registry.Registry;
 
 import common.Compute;
 import common.Tarea;
-import server.ImplementacionTareas;
 
 
 public class Cliente {
@@ -19,6 +18,7 @@ public class Cliente {
             Compute comp = (Compute) registry.lookup(name); 
             
             ImplementacionTareas tarea=new ImplementacionTareas(urlSample);
+            
             
             String resultado=comp.ejecutar(tarea);
             

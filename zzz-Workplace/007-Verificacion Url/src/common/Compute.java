@@ -3,7 +3,7 @@ package common;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-import server.ImplementacionTareas;
+import client.ImplementacionTareas;
 
 
 public interface Compute extends Remote {
