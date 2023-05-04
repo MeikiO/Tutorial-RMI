@@ -1,0 +1,8 @@
+
+// grant codebase "file:<path al bin del proyecto actual>" {
+// <permisos aplicados
+//};
+ 
+grant codebase "file:C:/Users/Lenovo/Documents/GitHub/PBL/zzz-Workplace/010- Security hello world/bin" {
+    permission java.security.AllPermission;
+};
