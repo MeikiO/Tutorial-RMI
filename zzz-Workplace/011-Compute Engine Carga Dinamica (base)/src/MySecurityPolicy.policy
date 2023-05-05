@@ -3,6 +3,8 @@
 // <permisos aplicados
 //};
  
-grant codebase "file:C:/Users/Lenovo/Documents/GitHub/PBL/zzz-Workplace/010- Security hello world/bin" {
+ 
+ 
+grant codebase "file:C:/Users/Lenovo/Documents/GitHub/PBL/zzz-Workplace/011-Compute Engine Carga Dinamica (base)/bin" {
     permission java.security.AllPermission;
 };

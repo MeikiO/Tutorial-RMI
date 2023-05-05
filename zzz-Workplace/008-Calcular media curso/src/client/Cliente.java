@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import common.Compute;
-import server.ImplementacionTareas;
+
 
 
 public class Cliente {
@@ -24,9 +24,7 @@ public class Cliente {
             
             List<Double> listaNotas=programa.introducirNotas();
             
-            ImplementacionTareas tarea=new ImplementacionTareas(listaNotas);
-            
-            Double resultado=comp.ejecutar(tarea);
+            Double resultado=comp.ejecutar(listaNotas);
             
             System.out.println("La media de las asignaturas es: "+resultado);
               

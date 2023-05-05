@@ -1,12 +1,13 @@
 package server;
 
+import java.io.FileInputStream;
 import java.io.FileReader;
+import java.io.UnsupportedEncodingException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
-import common.Tarea;
 import common.Compute;
 
 
@@ -40,10 +41,30 @@ public class Server extends UnicastRemoteObject implements Compute{
     }
 
 	@Override
-	public boolean ejecutar(ImplementacionTareas tarea) throws RemoteException {
-		boolean condicion=tarea.TransferirArchivo();
-		return condicion ;
+	public boolean ejecutar(byte[] bs) throws RemoteException {
+
+		boolean condicion=false;
+		try {
+			String mensaje=new String (bs,"UTF-8");
+		
+			System.out.println("Recibido: "+mensaje);
+			
+			GestorArchivos gestor=new GestorArchivos(mensaje);
+			condicion=gestor.TransferirArchivo();
+			
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return condicion;
 	}
+
+
+
+
+
+
 
 
 

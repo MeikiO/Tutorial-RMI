@@ -1,4 +1,4 @@
-package client;
+package server;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,18 +8,18 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import common.Condicion;
-import common.Tarea;
 
-public class ImplementacionTareas implements Tarea, Serializable {
+
+public class GestorUrl {
 
 	
 	private String urlSample;
 
-	public ImplementacionTareas(String UrlSample) {
+	public GestorUrl(String UrlSample) {
 		this.urlSample=UrlSample;
 	}
 	
-	@Override
+
 	public String urlValido() {
 		
 		Condicion condicion;
@@ -35,7 +35,6 @@ public class ImplementacionTareas implements Tarea, Serializable {
 		return condicion.getMensaje();
 	}
 
-	@Override
 	public String darTodalaInformacionDelUrl() {
 		String informacion="";
 		

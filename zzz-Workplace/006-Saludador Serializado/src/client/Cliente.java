@@ -14,7 +14,7 @@ public class Cliente {
             Registry registry = LocateRegistry.getRegistry(1099);
             
             Compute comp = (Compute) registry.lookup(name); 
-            ImplementacionTareas tarea =new ImplementacionTareas();
+            Saludador tarea =new Saludador();
             String s = (String) comp.ejecutar(tarea);
             System.out.println(s);
             

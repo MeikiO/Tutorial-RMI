@@ -6,7 +6,6 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 
-import common.Tarea;
 import common.Compute;
 
 public class Server extends UnicastRemoteObject implements Compute{
@@ -36,8 +35,9 @@ public class Server extends UnicastRemoteObject implements Compute{
     }
 
 	@Override
-	public Double  ejecutar(ImplementacionTareas tarea) throws RemoteException {
-		return tarea.calculaLaMedia();
+	public Double  ejecutar(List<Double> listaNotas) throws RemoteException {
+		Double sumaTotal=listaNotas.stream().reduce(Double::sum).get();
+		return (sumaTotal/listaNotas.size());
 	}
 
 

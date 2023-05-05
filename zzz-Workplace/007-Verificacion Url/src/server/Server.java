@@ -1,12 +1,16 @@
 package server;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
-import client.ImplementacionTareas;
-import common.Tarea;
+
 import common.Compute;
 import common.Condicion;
 
@@ -41,13 +45,15 @@ public class Server extends UnicastRemoteObject implements Compute{
     }
 
 	@Override
-	public String ejecutar(ImplementacionTareas tarea) throws RemoteException {
+	public String ejecutar(String urlSample) throws RemoteException{
 		String mensaje="";
 		
-		mensaje=tarea.urlValido();
+		GestorUrl gestor=new GestorUrl(urlSample);
+		
+		mensaje=gestor.urlValido();
 		
 		if(mensaje.equals(Condicion.Ok.getMensaje())) {
-			mensaje=mensaje+"\n HTML completo de URL: \n"+tarea.darTodalaInformacionDelUrl();			
+			mensaje=mensaje+"\n HTML completo de URL: \n"+gestor.darTodalaInformacionDelUrl();			
 		}
 		
 		
@@ -56,7 +62,6 @@ public class Server extends UnicastRemoteObject implements Compute{
 
 
 
-    
 
 
 

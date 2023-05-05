@@ -4,7 +4,6 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 import common.Compute;
-import common.Tarea;
 
 
 public class Cliente {
@@ -12,15 +11,13 @@ public class Cliente {
         
         try {
             String name = "UrlServer";
-            String urlSample="h";
+            String urlSample="https://docs.oracle.com/javase/tutorial/security/userperm/index.html";
             Registry registry = LocateRegistry.getRegistry(1099);
             
             Compute comp = (Compute) registry.lookup(name); 
             
-            ImplementacionTareas tarea=new ImplementacionTareas(urlSample);
             
-            
-            String resultado=comp.ejecutar(tarea);
+            String resultado=comp.ejecutar(urlSample);
             
             System.out.println(resultado);
             

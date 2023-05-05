@@ -43,7 +43,7 @@ public class Server extends UnicastRemoteObject implements Compute{
     
 
 	@Override
-	public Object ejecutar(Tareas t) throws RemoteException {
+	public String ejecutar(Tareas t) throws RemoteException {
 		return t.saludar(this.nombre);
 	}
 
