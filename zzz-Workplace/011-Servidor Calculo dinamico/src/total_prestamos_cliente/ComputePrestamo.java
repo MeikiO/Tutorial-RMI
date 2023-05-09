@@ -42,11 +42,11 @@ public class ComputePrestamo {
     	System.out.println("Introduce prestamo inicial: ");
         BigDecimal precio = teclado.nextBigDecimal();
         
-        System.out.println("A cuanta tasa de interes (%): ");
+        System.out.println("A cuanta tasa de interes: ");
         double porcentajeInteres=teclado.nextDouble();
-        BigDecimal tasaInteres = new BigDecimal(100/porcentajeInteres);
+        BigDecimal tasaInteres = new BigDecimal(porcentajeInteres/100);
         
-        System.out.println("El plazo de devolucion en dias: ");
+        System.out.println("El plazo de devolucion en años: ");
         BigDecimal plazo = teclado.nextBigDecimal();
 
         Prestamo task = new Prestamo(precio, tasaInteres, plazo);

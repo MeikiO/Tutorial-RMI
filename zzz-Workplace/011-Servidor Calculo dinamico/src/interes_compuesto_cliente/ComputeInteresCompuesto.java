@@ -42,15 +42,16 @@ public class ComputeInteresCompuesto {
     	System.out.println("Introduce monton inicial: ");
         BigDecimal montonInicial = teclado.nextBigDecimal();
         
-        System.out.println("Tasa anual de intereses (%): ");
+        System.out.println("Tasa anual de intereses : ");
         double porcentajeInteres=teclado.nextDouble();
-        BigDecimal tasaAnual = new BigDecimal(100/porcentajeInteres);
+        BigDecimal tasaAnual = new BigDecimal(porcentajeInteres/100);
         
         System.out.println("años en deposito: ");
         int anos = teclado.nextInt();
 
-        InteresCompuesto task = new InteresCompuesto(montonInicial,tasaAnual,anos);
-    	
+        InteresCompuesto task = new InteresCompuesto(montonInicial.doubleValue(),anos,tasaAnual.doubleValue(),12);
+    	//se capitaliza 12 veces al año
+        
         return task;
     }
     

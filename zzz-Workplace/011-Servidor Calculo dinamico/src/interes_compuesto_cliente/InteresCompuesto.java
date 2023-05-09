@@ -2,6 +2,7 @@ package interes_compuesto_cliente;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.math.RoundingMode;
 
 import compute.Task;
@@ -10,30 +11,35 @@ public class InteresCompuesto implements Task<BigDecimal>, Serializable {
 
     private static final long serialVersionUID = 227L;
 
-    private BigDecimal montoInicial; 
-    private BigDecimal tasaAnual;
-    private int anos;
+
+
+    
+	private double tasaInteresAnual;
+
+	private int tiempoAnos;
+
+	private double montonInicial;
+
+	private int vecesCapitalizacionAno;
     
 
-	public InteresCompuesto(BigDecimal montoInicial, BigDecimal tasaAnual, int anos) {
+	public InteresCompuesto(double p, int t, double r, int n) {
 		super();
-		this.montoInicial = montoInicial;
-		this.tasaAnual = tasaAnual;
-		this.anos = anos;
+		this.montonInicial=p;
+		this.tiempoAnos=t;
+		this.tasaInteresAnual=r;
+		this.vecesCapitalizacionAno=n;
 	}
 
 
 	@Override
 	public BigDecimal execute() {
 
-	      BigDecimal uno = new BigDecimal("1.00");
-	      BigDecimal tasaPeriodo = tasaAnual.divide(new BigDecimal("12.00"), 10, RoundingMode.HALF_UP);
-			
-	      BigDecimal periodos = new BigDecimal(anos * 12);
-	        
-		  BigDecimal montoFinal = montoInicial.multiply(uno.add(tasaPeriodo).pow(periodos.intValue()));
-		   
-		  return montoFinal.setScale(2, RoundingMode.HALF_UP);
+        double amount = montonInicial * Math.pow(1 + (tasaInteresAnual / vecesCapitalizacionAno), vecesCapitalizacionAno * tiempoAnos);
+        double cinterest = amount - montonInicial;
+        System.out.println("Compound Interest after " + tiempoAnos + " years: "+cinterest);
+        System.out.println("Amount after " + tiempoAnos + " years: "+amount);
+		return new BigDecimal(amount).setScale(2, RoundingMode.HALF_UP);
 	}   
 	
 }

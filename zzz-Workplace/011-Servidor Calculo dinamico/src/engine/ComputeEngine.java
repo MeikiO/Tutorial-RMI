@@ -30,8 +30,6 @@ public class ComputeEngine extends UnicastRemoteObject implements Compute {
         	
             String name = "Compute";
             Compute obj = new ComputeEngine();
-            //Compute stub = (Compute) UnicastRemoteObject.exportObject(engine, 0);
-            //Registry registry = LocateRegistry.getRegistry();
             Registry registry = LocateRegistry.createRegistry(1099);
             registry.rebind(name, obj);
             System.out.println("ComputeEngine bound");

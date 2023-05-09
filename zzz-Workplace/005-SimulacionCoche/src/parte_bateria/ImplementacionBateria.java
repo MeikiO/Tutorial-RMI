@@ -20,6 +20,7 @@ public class ImplementacionBateria extends UnicastRemoteObject implements LaInte
 	@Override
 	public boolean descargarBateria() throws RemoteException{
 		this.porcentajeBateria=this.porcentajeBateria-5;
+		System.out.println("bateria consumida, porcentajeActual: "+this.porcentajeBateria);
 		return true;
 	}
 
