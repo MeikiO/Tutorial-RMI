@@ -6,6 +6,7 @@ import java.rmi.registry.Registry;
 import java.util.Scanner;
 
 import compute.Compute;
+import compute.Monedas;
 
 import java.math.BigDecimal;
 
@@ -14,7 +15,7 @@ public class ComputeConvertidorMonedas {
         
         try {
         	if(System.getSecurityManager()==null) {
-          		System.setProperty("java.security.policy", "file:C:\\Users\\Lenovo\\Documents\\GitHub\\PBL\\zzz-Workplace\\011-Servidor Calculo dinamico\\src\\MySecurityPolicy.policy");
+          		System.setProperty("java.security.policy", "file:C:\\Users\\Lenovo\\Documents\\GitHub\\PBL\\zzz-Workplace\\012-Conversor de monedas\\src\\MySecurityPolicy.policy");
         		System.setSecurityManager(new RMISecurityManager());
         	}
         	
@@ -26,8 +27,8 @@ public class ComputeConvertidorMonedas {
             ComputeConvertidorMonedas programa=new ComputeConvertidorMonedas();
             ConvertidorMonedas task = programa.introducir_datos();
             
-            BigDecimal totalPrestamo = comp.executeTask(task);
-            System.out.println("Cantidad final: "+totalPrestamo+" €");
+            BigDecimal total = comp.executeTask(task);
+            System.out.println("Cantidad en moneda seleccionada: "+total);
             
         } catch (Exception e) {
             System.err.println("Compute exception:");
@@ -39,17 +40,36 @@ public class ComputeConvertidorMonedas {
     public ConvertidorMonedas introducir_datos() {
     	Scanner teclado=new Scanner(System.in);
         
-    	System.out.println("Introduce monton inicial: ");
+    	System.out.println("Introduce monton inicial(en euros):  ");
         BigDecimal montonInicial = teclado.nextBigDecimal();
         
-        System.out.println("Tasa anual de intereses (%): ");
-        double porcentajeInteres=teclado.nextDouble();
-        BigDecimal tasaAnual = new BigDecimal(100/porcentajeInteres);
+        System.out.println("Elige moneda: ");
+        int i=1;
+        for(Monedas actual:Monedas.values()) {
+        	System.out.println(i+"-"+actual.getNombre());
+        	i++;
+        }
         
-        System.out.println("años en deposito: ");
-        int anos = teclado.nextInt();
+        System.out.println("Elegido: ");
+        int elegido=teclado.nextInt();
+        
+        Monedas elegida=Monedas.DOLAR_ESTADOUNIDENSE;  
+        switch(elegido) {
+		    case 1 :elegida=Monedas.DOLAR_ESTADOUNIDENSE; break;
+		    case 2:elegida=Monedas.YEN_JAPONES; break;
+		    case 3:elegida=Monedas.LIBRA_ESTERLINA; break;
+		    case 4:elegida=Monedas.DOLAR_AUSTRALIANO; break;
+		    case 5:elegida=Monedas.DOLAR_CANADIENSE; break;
+		    case 6:elegida=Monedas.FRANCO_SUIZO; break;
+		    case 7:elegida=Monedas.RENMINBI_CHINO; break;
+		    case 8:elegida=Monedas.DOLAR_HONGKONES; break;
+		    case 9:elegida=Monedas.DOLAR_NEOZELANDES; break;
+        } 
 
-        ConvertidorMonedas task = new ConvertidorMonedas(montonInicial,tasaAnual,anos);
+        
+
+
+        ConvertidorMonedas task = new ConvertidorMonedas(montonInicial,elegida);
     	
         return task;
     }
