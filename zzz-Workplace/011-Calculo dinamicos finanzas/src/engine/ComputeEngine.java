@@ -24,7 +24,9 @@ public class ComputeEngine extends UnicastRemoteObject implements Compute {
         try {
         	
         	if(System.getSecurityManager()==null) {
-          		System.setProperty("java.security.policy", "file:C:\\Users\\Lenovo\\Documents\\GitHub\\PBL\\zzz-Workplace\\011-Servidor Calculo dinamico\\src\\MySecurityPolicy.policy");
+        		System.setProperty("java.rmi.server.useCodebaseOnly", "False"); //habilitamos la descarga remota
+        	//decimos que security policy implementamos
+        		System.setProperty("java.security.policy", "file:C:\\Users\\Lenovo\\Documents\\GitHub\\PBL\\zzz-Workplace\\011-Calculo dinamicos finanzas\\src\\MySecurityPolicy.policy");
         		System.setSecurityManager(new RMISecurityManager());
         	}
         	

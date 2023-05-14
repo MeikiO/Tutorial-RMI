@@ -17,7 +17,7 @@ public class Server {
            	if(System.getSecurityManager()==null) {
            		System.setProperty("java.rmi.server.useCodebaseOnly", "False"); //habilitamos la descarga remota
         		//decimos que security policy implementamos
-           		System.setProperty("java.security.policy", "file:C:\\Users\\Lenovo\\Documents\\GitHub\\PBL\\zzz-Workplace\\010- Security hello world\\example_SecurityPolicy.policy");
+           		System.setProperty("java.security.policy", "file:C:\\Users\\Lenovo\\Documents\\GitHub\\PBL\\zzz-Workplace\\010-Security hello world Example\\example_SecurityPolicy.policy");
         		System.setSecurityManager(new RMISecurityManager());
         	}
         	HelloImpl obj = new HelloImpl(); // Inicializamos la clase que implementa el common y extends UnicastRemoteObject 

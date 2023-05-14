@@ -14,7 +14,8 @@ public class ComputePrestamo {
         
         try {
         	if(System.getSecurityManager()==null) {
-          		System.setProperty("java.security.policy", "file:C:\\Users\\Lenovo\\Documents\\GitHub\\PBL\\zzz-Workplace\\011-Servidor Calculo dinamico\\src\\MySecurityPolicy.policy");
+            	//decimos que security policy implementamos
+        		System.setProperty("java.security.policy", "file:C:\\Users\\Lenovo\\Documents\\GitHub\\PBL\\zzz-Workplace\\011-Calculo dinamicos finanzas\\src\\MySecurityPolicy.policy");
         		System.setSecurityManager(new RMISecurityManager());
         	}
         	

@@ -1,10 +1,8 @@
-
-// grant codebase "file:<path al bin del proyecto actual>" {
+// Definimos de donde descarga los datos  
+//grant codebase "file:<path al bin del proyecto actual>" {
 // <permisos aplicados
 //};
  
- 
- 
-grant codebase "file:C:/Users/Lenovo/Documents/GitHub/PBL/zzz-Workplace/011-Servidor Calculo dinamico/bin" {
-    permission java.security.AllPermission;
+grant {
+    permission "java.security.AllPermission";
 };
