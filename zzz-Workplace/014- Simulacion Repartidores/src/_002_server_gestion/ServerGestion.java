@@ -24,9 +24,11 @@ public class ServerGestion extends UnicastRemoteObject implements HacerPedidos {
 
     private ConcurrentHashMap<String,Pedido> mapaPedidos;
     
+    private double facturacionTotal;
+    
     public ServerGestion() throws RemoteException {
       this.mapaPedidos=new ConcurrentHashMap<>();
-
+      this.facturacionTotal=0.0;
     }
 
     public Pedido getPedido() {
@@ -70,11 +72,12 @@ public class ServerGestion extends UnicastRemoteObject implements HacerPedidos {
       boolean condicion=this.mandarPedidoASubcontratas(pedido);
       
  
-      String mensaje="";
+      //si la condicion es correcta facturamos el pedido y hacemos una acumulacion de 
+      //lo que se ha facturado hasta el momento.
       if(condicion) {
         System.out.println("---------El pedido"+pedido.getId().toString()+" se ha facturadado");
-        
-        //AQUI GUARDAMOS EN DATABASE
+        this.facturacionTotal=facturacionTotal+pedido.getTotalCosto();
+        System.out.println("Total facturado: "+this.facturacionTotal);
         
       }
 
