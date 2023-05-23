@@ -1,5 +1,6 @@
 package _001_cliente;
 
+import java.rmi.RMISecurityManager;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -66,6 +67,13 @@ Lo que si se ha conseguido ha sido que mientras se ejecuta, y si subcontrata 1 y
       
         try {
             
+        	if(System.getSecurityManager()==null) {
+        	//decimos que security policy implementamos
+        		System.setProperty("java.security.policy", "file:C:\\Users\\Lenovo\\Documents\\GitHub\\PBL\\zzz-Workplace\\014- Simulacion Repartidores\\src\\MySecurityPolicy.policy");
+        		System.setSecurityManager(new RMISecurityManager());
+        	}
+        	
+        	
             Registry registry = LocateRegistry.getRegistry(port);
             HacerPedidos comp = (HacerPedidos) registry.lookup(nameClienteAExtraer);
             
@@ -78,7 +86,7 @@ Lo que si se ha conseguido ha sido que mientras se ejecuta, y si subcontrata 1 y
             boolean tarea1 = comp.hacerPedido(pedido);
             
             if(tarea1) {
-              System.out.println("El pedido se ha realizado correctamente "+pedido.getId());        
+              System.out.println("El pedido "+ pedido.getId() +" se ha realizado correctamente ");        
             }
             else {
               System.out.println("No se ha podido realizar el pedido "+pedido.getId());

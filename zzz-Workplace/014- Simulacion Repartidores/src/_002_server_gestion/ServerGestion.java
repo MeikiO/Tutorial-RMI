@@ -1,5 +1,6 @@
 package _002_server_gestion;
 
+import java.rmi.RMISecurityManager;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -44,7 +45,14 @@ public class ServerGestion extends UnicastRemoteObject implements HacerPedidos {
     public static void main(String[] args) {
         
         try {
-          Registry registry = LocateRegistry.createRegistry(NUMPUERTO_GESTION);
+         
+        	if(System.getSecurityManager()==null) {
+        	//decimos que security policy implementamos
+        		System.setProperty("java.security.policy", "file:C:\\Users\\Lenovo\\Documents\\GitHub\\PBL\\zzz-Workplace\\014- Simulacion Repartidores\\src\\MySecurityPolicy.policy");
+        		System.setSecurityManager(new RMISecurityManager());
+        	}
+        	
+        	Registry registry = LocateRegistry.createRegistry(NUMPUERTO_GESTION);
 
           
           HacerPedidos obj = new ServerGestion();
