@@ -1,4 +1,4 @@
-package baul;
+package _003_baul;
 
 import java.math.BigDecimal;
 import java.util.Map;
@@ -18,7 +18,7 @@ public class Cuenta {
 	private Double depositoAPlazos;
 	private boolean depositoRealizado;
 	
-	public Cuenta(Integer id, Double saldoTotal) {
+	public Cuenta(Integer id) {
 		this.id=id;
 		this.saldoTotal=0.0;
 		this.divisas=new TreeMap<>();
@@ -28,8 +28,20 @@ public class Cuenta {
 		
 		this.depositoAPlazos=0.0;
 		this.depositoRealizado=false;
+		
 	}
-	
+	public Cuenta(Integer id, Double saldoTotal, Double totalPrestamoAdevolver,
+			boolean prestamoSolicitado, Double depositoAPlazos, boolean depositoRealizado) {
+		super();
+		this.id = id;
+		this.saldoTotal = saldoTotal;
+		this.divisas=new TreeMap<>();
+		TotalPrestamoAdevolver = totalPrestamoAdevolver;
+		this.prestamoSolicitado = prestamoSolicitado;
+		this.depositoAPlazos = depositoAPlazos;
+		this.depositoRealizado = depositoRealizado;
+	}
+
 	public Integer getId() {
 		return id;
 	}

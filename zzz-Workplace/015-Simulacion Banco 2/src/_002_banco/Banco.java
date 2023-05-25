@@ -19,7 +19,7 @@ public class Banco extends UnicastRemoteObject implements Compute {
 	private static Compute baul;
 	
     public Banco() throws RemoteException {} {
-        //super();
+
     }
 
     public <T> T executeTask(Task<T> t) throws RemoteException {
@@ -46,14 +46,9 @@ public class Banco extends UnicastRemoteObject implements Compute {
             System.out.println("Banco abierto Log de movimientos realizados: \n\n");
             
            
-            
-            
             //aqui abrimos conexion con el Baul como cliente
             Registry registry_cliente = LocateRegistry.getRegistry(NUMPUERTO_BAUL);
             baul = (Compute) registry_cliente.lookup(NOMBRESERVER_BAUL);
-            
-            
-            
             
             
         } catch (Exception e) {
