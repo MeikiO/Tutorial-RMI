@@ -33,12 +33,6 @@ public class Subcontrata_1 extends UnicastRemoteObject implements Subcontratacio
       
         try {
         	
-        	if(System.getSecurityManager()==null) {
-        	//decimos que security policy implementamos
-        		System.setProperty("java.security.policy", "file:C:\\Users\\Lenovo\\Documents\\GitHub\\PBL\\zzz-Workplace\\014- Simulacion Repartidores\\src\\MySecurityPolicy.policy");
-        		System.setSecurityManager(new RMISecurityManager());
-        	}
-        	
           Registry registry = LocateRegistry.createRegistry(NUMPUERTO_SUBCONTRATA);
 
           Subcontratacion obj = new Subcontrata_1("Hola que tal estas, soy 1");

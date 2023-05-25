@@ -9,7 +9,7 @@ import compute.Compute;
 
 import java.math.BigDecimal;
 
-public class ComputePi {
+public class ComputeData {
     public static void main(String args[]) {
         
         try {
@@ -23,7 +23,7 @@ public class ComputePi {
             
             Registry registry = LocateRegistry.getRegistry(1099);
             Compute comp = (Compute) registry.lookup(name);
-            Pi task = new Pi();
+            DataExtractor task = new DataExtractor();
            
             Persona pi = comp.executeTask(task);
             

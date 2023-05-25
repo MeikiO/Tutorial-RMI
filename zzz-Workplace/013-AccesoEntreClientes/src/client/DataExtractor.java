@@ -8,7 +8,7 @@ import clienteDatos.Persona;
 import compute.Data;
 import compute.Task;
 
-public class Pi implements Task<BigDecimal>, Serializable {
+public class DataExtractor implements Task<BigDecimal>, Serializable {
 
     private static final long serialVersionUID = 227L;
 

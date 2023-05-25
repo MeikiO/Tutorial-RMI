@@ -3,7 +3,7 @@ package compute;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-import client.Pi;
+import client.DataExtractor;
 import clienteDatos.Baul;
 import clienteDatos.Persona;
 
