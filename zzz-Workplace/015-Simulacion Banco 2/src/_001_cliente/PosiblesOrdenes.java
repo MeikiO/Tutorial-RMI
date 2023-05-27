@@ -3,7 +3,7 @@ package _001_cliente;
 public enum PosiblesOrdenes {
 	CONSULTAR,
 	INGRESAR,
-	SACAR,
+	RETIRAR,
 	TRANSFERENCIA,
 	PRESTAMO,
 	DEPOSITO,

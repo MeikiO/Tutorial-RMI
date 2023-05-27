@@ -17,6 +17,8 @@ public class Cliente {
     private final static String NOMBRESERVER="Banco";
     private final static String ID_CLIENTE="1";
     
+    private final static String DIVISOR="_";
+    
     public static void main(String args[]) {
         
         try {
@@ -27,29 +29,32 @@ public class Cliente {
         	
         	String name = "Compute";
 
-            
             Registry registry = LocateRegistry.getRegistry(NUMPUERTO);
             Compute comp = (Compute) registry.lookup(NOMBRESERVER);
-            
-            
+                        
             Cliente programa=new Cliente();
             int opcion=0;
             
             do {
-            	opcion=programa.menu();
-            	programa.accion(opcion,comp);
+            	try {
+            		 opcion=programa.menu();
+            		 programa.accion(opcion,comp);
+            	}
+            	catch(java.lang.NumberFormatException e2) {
+            		System.out.println("opcion incorrecta vuelve a intentarlo.");
+            	}
+           
             }while(opcion!=0);
             
             
         } catch (Exception e) {
-            System.err.println("ComputePi exception:");
-            e.printStackTrace();
+          e.printStackTrace();
         }
     }    
     
 
 	private int menu() {
-		System.out.println("Opciones: "
+		System.out.println("\n\n Opciones: "
 				+ "\n 1- ConsultarSaldo"
 				+ "\n 2- Ingresar saldo"
 				+ "\n 3- Extraer saldo"
@@ -65,34 +70,44 @@ public class Cliente {
 	
 	private void accion(int opcion, Compute comp) throws RemoteException {
 		Ordenes task = null;
-		
-		
+		String ordenAMandar="";
+		Scanner teclado=new Scanner(System.in);
 		
 		switch (opcion) {
 			case 1:{
-				String ordenAMandar= ID_CLIENTE+"."+PosiblesOrdenes.CONSULTAR;
-	            task = new Ordenes(ordenAMandar);
-	            String resultado = comp.executeTask(task);
-	            System.out.println(resultado);
+				ordenAMandar= ID_CLIENTE
+						+DIVISOR + PosiblesOrdenes.CONSULTAR;
 				break;
 			}
 			case 2:{
-	            int cantidad=1000;
-	            String ordenAMandar=ID_CLIENTE+"."+PosiblesOrdenes.INGRESAR+"."+cantidad;
-	            
-	            task = new Ordenes(ordenAMandar);
-	            String resultado = comp.executeTask(task);
-				
-	            System.out.println(resultado);
+	            System.out.print("\n Introduce la cantidad a INGRESAR:");
+	            double cantidad=teclado.nextDouble();
+	            ordenAMandar=ID_CLIENTE
+	            		+DIVISOR + PosiblesOrdenes.INGRESAR
+	            		+DIVISOR + cantidad;
 				break;
 			}
 			case 3:{
+				   System.out.print("\n Introduce la cantidad a RETIRAR:");
+		           double cantidad=teclado.nextDouble();
+		           ordenAMandar=ID_CLIENTE
+		        		   +DIVISOR + PosiblesOrdenes.RETIRAR
+		        		   +DIVISOR + cantidad;
 				break;
 			}
 			case 4:{
+					System.out.println("Introduce id al que le quieras hacer la transferencia: ");
+					int id_destino=teclado.nextInt();  
+					System.out.print("\n Introduce la cantidad a MANDAR:");
+			        double cantidad=teclado.nextDouble();
+			        ordenAMandar=ID_CLIENTE 
+			        		+ DIVISOR + PosiblesOrdenes.TRANSFERENCIA 
+			        		+ DIVISOR + cantidad 
+			        		+ DIVISOR + id_destino;
 				break;
 			}
 			case 5:{
+				
 				break;
 			}
 			case 6:{
@@ -101,11 +116,15 @@ public class Cliente {
 			case 7:{
 				break;
 			}
-		
+
 		default:
 			break;
 		}
+
+        task = new Ordenes(ordenAMandar);
+        String resultado = comp.executeTask(task);
 		
+        System.out.println(resultado);
 	}
     
 }

@@ -18,17 +18,13 @@ public class Banco extends UnicastRemoteObject implements Compute {
     private final static String NOMBRESERVER_BAUL="Baul";
 	private static Compute baul;
 	
-    public Banco() throws RemoteException {} {
-
-    }
+    public Banco() throws RemoteException {} {}
 
     public <T> T executeTask(Task<T> t) throws RemoteException {
     	System.out.println(t.recibirOrden().toString()); //hacemos el log printeando los comandos
         return baul.executeTask(t);
     }
 
-    
-    
     public static void main(String[] args) {
         
         try {

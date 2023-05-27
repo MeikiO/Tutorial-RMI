@@ -1,6 +1,7 @@
 package _003_baul;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.UUID;
@@ -9,7 +10,7 @@ public class Cuenta {
 	
 	Integer id;
 	
-	private Double saldoTotal;
+	private BigDecimal saldoTotal;
 	private Map<String,BigDecimal> divisas;
 	
 	private Double TotalPrestamoAdevolver;
@@ -20,7 +21,7 @@ public class Cuenta {
 	
 	public Cuenta(Integer id) {
 		this.id=id;
-		this.saldoTotal=0.0;
+		this.saldoTotal=new BigDecimal("0.0");
 		this.divisas=new TreeMap<>();
 		
 		this.TotalPrestamoAdevolver=0.0;
@@ -30,7 +31,7 @@ public class Cuenta {
 		this.depositoRealizado=false;
 		
 	}
-	public Cuenta(Integer id, Double saldoTotal, Double totalPrestamoAdevolver,
+	public Cuenta(Integer id, BigDecimal saldoTotal, Double totalPrestamoAdevolver,
 			boolean prestamoSolicitado, Double depositoAPlazos, boolean depositoRealizado) {
 		super();
 		this.id = id;
@@ -48,11 +49,20 @@ public class Cuenta {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	public void ingresar(Double cantidad) {
+		this.setSaldoTotal(cantidad+this.getSaldoTotal());
+	}
+	
+	public void retirar(Double cantidad) {
+		this.setSaldoTotal(this.getSaldoTotal()-cantidad);
+	}
+	
 	public Double getSaldoTotal() {
-		return saldoTotal;
+		return this.saldoTotal.setScale(2, RoundingMode.HALF_UP).doubleValue();
 	}
 	public void setSaldoTotal(Double saldoTotal) {
-		this.saldoTotal = saldoTotal;
+		this.saldoTotal = new BigDecimal(""+saldoTotal);
 	}
 	public Map<String, BigDecimal> getDivisas() {
 		return divisas;

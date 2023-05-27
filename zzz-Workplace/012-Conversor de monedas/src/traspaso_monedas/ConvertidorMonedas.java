@@ -27,7 +27,6 @@ public class ConvertidorMonedas implements Task<BigDecimal>, Serializable {
 
 	@Override
 	public BigDecimal execute() {
-
 		BigDecimal convertedAmount = this.montoInicial.multiply(this.moneda.getValorRepectoAlEuro());
 		return convertedAmount.setScale(2, RoundingMode.HALF_UP);
 	}   
