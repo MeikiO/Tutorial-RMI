@@ -18,10 +18,6 @@ public class Ordenes implements Task<String>,Serializable {
 		this.ordenMandada = ordenMandada;
 	}
 
-	public Ordenes() {
-		
-	}
-
 	@Override
 	public String recibirOrden() {
 		return this.ordenMandada;

@@ -11,36 +11,25 @@ public class Cuenta {
 	Integer id;
 	
 	private BigDecimal saldoTotal;
-	private Map<String,BigDecimal> divisas;
 	
 	private Double TotalPrestamoAdevolver;
 	private boolean prestamoSolicitado;
-	
-	private Double depositoAPlazos;
-	private boolean depositoRealizado;
+
 	
 	public Cuenta(Integer id) {
 		this.id=id;
 		this.saldoTotal=new BigDecimal("0.0");
-		this.divisas=new TreeMap<>();
 		
 		this.TotalPrestamoAdevolver=0.0;
-		this.prestamoSolicitado=false;
-		
-		this.depositoAPlazos=0.0;
-		this.depositoRealizado=false;
-		
+		this.prestamoSolicitado=false;		
 	}
 	public Cuenta(Integer id, BigDecimal saldoTotal, Double totalPrestamoAdevolver,
-			boolean prestamoSolicitado, Double depositoAPlazos, boolean depositoRealizado) {
+			boolean prestamoSolicitado) {
 		super();
 		this.id = id;
 		this.saldoTotal = saldoTotal;
-		this.divisas=new TreeMap<>();
 		TotalPrestamoAdevolver = totalPrestamoAdevolver;
 		this.prestamoSolicitado = prestamoSolicitado;
-		this.depositoAPlazos = depositoAPlazos;
-		this.depositoRealizado = depositoRealizado;
 	}
 
 	public Integer getId() {
@@ -64,11 +53,8 @@ public class Cuenta {
 	public void setSaldoTotal(Double saldoTotal) {
 		this.saldoTotal = new BigDecimal(""+saldoTotal);
 	}
-	public Map<String, BigDecimal> getDivisas() {
-		return divisas;
-	}
-	public void setDivisas(Map<String, BigDecimal> divisas) {
-		this.divisas = divisas;
+	public void pagarPrestamo(Double cantidad) {
+		this.setTotalPrestamoAdevolver(this.getTotalPrestamoAdevolver()-cantidad);
 	}
 	public Double getTotalPrestamoAdevolver() {
 		return TotalPrestamoAdevolver;
@@ -81,18 +67,6 @@ public class Cuenta {
 	}
 	public void setPrestamoSolicitado(boolean prestamoSolicitado) {
 		this.prestamoSolicitado = prestamoSolicitado;
-	}
-	public Double getDepositoAPlazos() {
-		return depositoAPlazos;
-	}
-	public void setDepositoAPlazos(Double depositoAPlazos) {
-		this.depositoAPlazos = depositoAPlazos;
-	}
-	public boolean isDepositoRealizado() {
-		return depositoRealizado;
-	}
-	public void setDepositoRealizado(boolean depositoRealizado) {
-		this.depositoRealizado = depositoRealizado;
 	}
 	
 }

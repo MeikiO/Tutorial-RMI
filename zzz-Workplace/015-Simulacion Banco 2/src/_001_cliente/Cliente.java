@@ -17,6 +17,9 @@ public class Cliente {
     private final static String NOMBRESERVER="Banco";
     private final static String ID_CLIENTE="1";
     
+    private final double tasaIntereses=5.1;
+    private final int plazoPrestamo=6;
+    
     private final static String DIVISOR="_";
     
     public static void main(String args[]) {
@@ -59,9 +62,7 @@ public class Cliente {
 				+ "\n 2- Ingresar saldo"
 				+ "\n 3- Extraer saldo"
 				+ "\n 4- Transferencia"
-				+ "\n 5- Pedir prestamo"
-				+ "\n 6- Fondo a 10 años"
-				+ "\n 7- Cambio de divisas"
+				+ "\n 5- Pedir prestamo a " + plazoPrestamo+" meses"
 				+ "\n 0- Salir");
 		System.out.print("\n Opcion: ");
 		Scanner teclado=new Scanner(System.in);
@@ -96,7 +97,7 @@ public class Cliente {
 				break;
 			}
 			case 4:{
-					System.out.println("Introduce id al que le quieras hacer la transferencia: ");
+					System.out.print("\n Introduce id al que le quieras hacer la transferencia: ");
 					int id_destino=teclado.nextInt();  
 					System.out.print("\n Introduce la cantidad a MANDAR:");
 			        double cantidad=teclado.nextDouble();
@@ -107,13 +108,46 @@ public class Cliente {
 				break;
 			}
 			case 5:{
-				
-				break;
-			}
-			case 6:{
-				break;
-			}
-			case 7:{
+				  ordenAMandar=ID_CLIENTE 
+			        		+ DIVISOR + PosiblesOrdenes.CONSULTARPRESTAMO;
+				  task = new Ordenes(ordenAMandar);
+				  String comprobacion = comp.executeTask(task);
+				  
+				  String[] trozos = comprobacion.split("["+DIVISOR+"]");
+				  
+				  System.out.println(trozos[0]);
+				  
+				  int situacion=Integer.parseInt(trozos[1]);
+				  double cantidad=0;
+				  
+				  ordenAMandar=ID_CLIENTE+DIVISOR+PosiblesOrdenes.PASAR; //para el caso de que no eligan nada, no repita acciones
+				  
+				  if(situacion==0) {
+					  System.out.println("Quieres devolver parte del Prestamo: \n 1-SI \n 2-NO");
+					  int realizar=teclado.nextInt();
+					  
+					  if(realizar==1) {
+						  System.out.print("\n cantidad a devolver: ");
+						  cantidad=teclado.nextDouble();
+						  ordenAMandar=ID_CLIENTE 
+					        		+ DIVISOR + PosiblesOrdenes.DEVOLVERPRESTAMO
+					        		+ DIVISOR + cantidad;
+					  }
+				  }
+				  else {
+					  System.out.println("Quieres pedir un Prestamo: \n 1-SI \n 2-NO");
+					  int realizar=teclado.nextInt();
+					  
+					  if(realizar==1) {
+						  System.out.print("\n cantidad requerida en el prestamo: ");
+						  cantidad=teclado.nextDouble();
+						  ordenAMandar=ID_CLIENTE 
+					        		+ DIVISOR + PosiblesOrdenes.REALIZARPRESTAMO
+					        		+ DIVISOR + cantidad
+					        		+ DIVISOR + this.plazoPrestamo;  
+					  }
+				  }
+				  
 				break;
 			}
 
