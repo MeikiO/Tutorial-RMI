@@ -10,5 +10,4 @@ public class Saludador implements Tareas, Serializable {
 	public String saludar(String nombre) {
 		return "Saludos "+nombre;
 	}
-
 }

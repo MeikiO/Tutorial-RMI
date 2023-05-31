@@ -2,15 +2,10 @@ package parte_bateria;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-
 import common.LaInterfazBateria;
-import common.RuedaDelantera;
-
-
 
 public class ImplementacionBateria extends UnicastRemoteObject implements LaInterfazBateria{
 
-	private String id;
 	private int porcentajeBateria;
 
 	protected ImplementacionBateria() throws RemoteException {

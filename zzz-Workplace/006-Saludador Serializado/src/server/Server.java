@@ -8,21 +8,14 @@ import java.rmi.server.UnicastRemoteObject;
 import common.Tareas;
 import common.Compute;
 
-
-
-
 public class Server extends UnicastRemoteObject implements Compute{
 
     private final String nombre="UNAI";
     
-
-
 	public Server() throws RemoteException {} {
     }
 
-
     public static void main(String[] args) {
-        
         try {
         	String name = "Saludador";
 
@@ -40,12 +33,8 @@ public class Server extends UnicastRemoteObject implements Compute{
         }
     }
 
-    
-
 	@Override
 	public String ejecutar(Tareas t) throws RemoteException {
 		return t.saludar(this.nombre);
 	}
-
-
 }

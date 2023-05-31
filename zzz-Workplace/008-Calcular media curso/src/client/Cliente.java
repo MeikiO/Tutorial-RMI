@@ -8,8 +8,6 @@ import java.util.Scanner;
 
 import common.Compute;
 
-
-
 public class Cliente {
     public static void main(String args[]) {
         
@@ -45,6 +43,8 @@ public class Cliente {
 			Double notaAsignatura=teclado.nextDouble();
 			notas.add(notaAsignatura);
 		}
+		
+		teclado.close();
 		
 		return notas;
 	}    

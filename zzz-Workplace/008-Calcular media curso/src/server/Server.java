@@ -10,7 +10,6 @@ import common.Compute;
 
 public class Server extends UnicastRemoteObject implements Compute{
 
-
     protected Server() throws RemoteException {
 		super();
 	}
@@ -39,14 +38,4 @@ public class Server extends UnicastRemoteObject implements Compute{
 		Double sumaTotal=listaNotas.stream().reduce(Double::sum).get();
 		return (sumaTotal/listaNotas.size());
 	}
-
-
-
-
-
-    
-
-
-
-
 }

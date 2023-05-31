@@ -10,7 +10,6 @@ public class Client {
 
     public static void main(String[] args) {
         try {
-            
         	//accedemos al servidor de nombres a traves del puerto
         	Registry registry = LocateRegistry.getRegistry("192.168.47.109",1099);
         	

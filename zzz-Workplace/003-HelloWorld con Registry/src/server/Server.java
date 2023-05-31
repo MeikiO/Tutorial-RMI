@@ -1,18 +1,12 @@
 package server;
 import java.rmi.registry.Registry;
 import java.rmi.registry.LocateRegistry;
-import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
 
-import common.Hello;
-        
 public class Server { 
     public Server() {}
 
     public static void main(String args[]) {
-        
         try {
-        	
         	HelloImpl obj = new HelloImpl(); // Inicializamos la clase que implementa el common y extends UnicastRemoteObject 
             
         	//creamos el servidor de nombre

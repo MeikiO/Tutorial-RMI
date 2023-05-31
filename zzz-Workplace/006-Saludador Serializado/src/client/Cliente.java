@@ -5,10 +5,8 @@ import java.rmi.registry.Registry;
 
 import common.Compute;
 
-
 public class Cliente {
     public static void main(String args[]) {
-        
         try {
             String name = "Saludador";
             Registry registry = LocateRegistry.getRegistry(1099);

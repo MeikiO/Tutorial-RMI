@@ -3,15 +3,12 @@ package server;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
 
 import common.Condicion;
 
-
 public class GestorUrl {
-
 	
 	private String urlSample;
 
@@ -19,9 +16,7 @@ public class GestorUrl {
 		this.urlSample=UrlSample;
 	}
 	
-
 	public String urlValido() {
-		
 		Condicion condicion;
 		
 		try {
@@ -41,8 +36,8 @@ public class GestorUrl {
 		try {
 			URL url = new URL(this.urlSample);
 			
-			 // Volcamos lo recibido al buffer
-			 BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
+			// Volcamos lo recibido al buffer
+			BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
 
 			String inputLine="";
 			while ((inputLine = in.readLine()) != null) {
@@ -57,6 +52,4 @@ public class GestorUrl {
 		}
 		return informacion;
 	}
-
-
 }

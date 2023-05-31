@@ -2,11 +2,7 @@ package parte_frontal;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-
-import common.LaInterfazBateria;
 import common.RuedaDelantera;
-
-
 
 public class ImplementacionRuedaDelantera extends UnicastRemoteObject implements RuedaDelantera{
 
@@ -36,8 +32,4 @@ public class ImplementacionRuedaDelantera extends UnicastRemoteObject implements
 		System.out.println(id+" se ha parado");
 		return id+" se ha parado";
 	}
-
-
-	
-	
 }

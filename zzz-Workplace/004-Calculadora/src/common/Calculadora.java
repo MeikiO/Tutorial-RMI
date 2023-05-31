@@ -3,7 +3,7 @@ package common;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-public interface Calculadora extends Remote { //para hacer remoto un objeto siempre tiene que implementar Remote
+public interface Calculadora extends Remote {
 	int sumar(int n1,int n2) throws RemoteException;
 	int restar(int n1,int n2) throws RemoteException;
 	int multiplicar(int n1,int n2) throws RemoteException;

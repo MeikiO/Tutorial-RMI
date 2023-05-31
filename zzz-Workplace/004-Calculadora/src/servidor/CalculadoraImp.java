@@ -5,7 +5,6 @@ import java.rmi.server.UnicastRemoteObject;
 
 import common.Calculadora;
 
-
 public class CalculadoraImp extends UnicastRemoteObject implements Calculadora{
 
 	protected CalculadoraImp() throws RemoteException {}

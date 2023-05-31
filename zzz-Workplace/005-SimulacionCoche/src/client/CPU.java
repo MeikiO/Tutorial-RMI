@@ -1,7 +1,5 @@
 package client;
 
-import java.rmi.NotBoundException;
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -11,8 +9,6 @@ import java.util.Scanner;
 import common.LaInterfazBateria;
 import common.RuedaDelantera;
 import common.RuedaTrasera;
-
-
 
 public class CPU {
 	Scanner teclado;
@@ -35,7 +31,6 @@ public class CPU {
 	
 	public static void main(String[] args) {
 		try {
-
 			//cada stub tiene su puerto y su direccion lookup (el puesto en el bind)
 			// cada puerto solo puede ser usado por 1 proceso a la vez.
 			
@@ -49,10 +44,6 @@ public class CPU {
 			 -> el nombre de registro esta mal en algun lado
 			 
 			*/
-			
-			
-			//En este ejercicio se quiere trabajar el uso de diferentes stubs
-			// en una aplicacion distribuida. (el ejercicio es largo pero facil)
 			
         	Registry registry = LocateRegistry.getRegistry(1091);
             RuedaDelantera r1 =  (RuedaDelantera) registry.lookup("direccion1"); 
@@ -71,7 +62,6 @@ public class CPU {
             
             CPU programa=new CPU(r1,r2,r3,r4,bateria);
             
-            
             programa.hacerOperaciones();
             
         } catch (Exception e) {
@@ -85,7 +75,6 @@ public class CPU {
 		int opcion=0;
 		
 		try {
-			
 			do {
 				opcion=this.menu();
 				
@@ -130,15 +119,11 @@ public class CPU {
 					
 					System.out.println("Respuesta: " + respuesta);
 				}
-				
-			
 			}while(opcion!=0);
-		
 		}
 		catch(RemoteException e) {
 			e.printStackTrace();
 		}
-		
 	}
 	
 	private int menu() {
