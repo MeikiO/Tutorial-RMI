@@ -1,4 +1,5 @@
 package client;
+
 import java.rmi.RMISecurityManager;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -11,10 +12,8 @@ public class Client {
 
     public static void main(String[] args) {
         try {
-            
-        	
-            
         	if(System.getSecurityManager()==null) {
+         		System.setProperty("java.rmi.server.useCodebaseOnly", "False"); //habilitamos la descarga remota
         	//decimos que security policy implementamos
         		System.setProperty("java.security.policy", "file:C:\\Users\\Lenovo\\Documents\\GitHub\\PBL\\zzz-Workplace\\010-Security hello world Example\\example_SecurityPolicy.policy");
         		System.setSecurityManager(new RMISecurityManager());

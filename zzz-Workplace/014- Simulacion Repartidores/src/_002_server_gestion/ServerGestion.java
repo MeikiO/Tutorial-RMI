@@ -6,16 +6,9 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
-
-import _001_cliente.GeneradorPedidos;
 import commons.Subcontratacion;
 import commons.HacerPedidos;
 import commons.Pedido;
-
-
-
-
 
 public class ServerGestion extends UnicastRemoteObject implements HacerPedidos {
 
@@ -36,24 +29,18 @@ public class ServerGestion extends UnicastRemoteObject implements HacerPedidos {
       return pedido;
     }
 
-
     public void setPedido(Pedido pedido) {
       this.pedido = pedido;
     }
 
-
-    public static void main(String[] args) {
-        
+    public static void main(String[] args) {        
         try {
-                 	
         	Registry registry = LocateRegistry.createRegistry(NUMPUERTO_GESTION);
 
-          
-          HacerPedidos obj = new ServerGestion();
-          String nameCliente1 = "ServerGestion";//despues seria sustituir esto por el UUID GENERADO
-          registry.rebind(nameCliente1, obj);
-          
-          
+        	HacerPedidos obj = new ServerGestion();
+          	String nameCliente1 = "ServerGestion";
+          	registry.rebind(nameCliente1, obj);
+              
             System.out.println("Servidor Gestor de pedidos Online");
         } catch (Exception e) {
             System.err.println("ComputeEngine exception:");
@@ -64,18 +51,12 @@ public class ServerGestion extends UnicastRemoteObject implements HacerPedidos {
 
     @Override
     public boolean hacerPedido(Pedido pedido) throws RemoteException {
-     
       this.pedido=pedido;
       
       System.out.println("\n Pedido recibido: "+pedido.toString());
-           
-      //se manda el pedido a la subcontrata, para que hay haga el reparto
       
       boolean condicion=this.mandarPedidoASubcontratas(pedido);
       
- 
-      //si la condicion es correcta facturamos el pedido y hacemos una acumulacion de 
-      //lo que se ha facturado hasta el momento.
       if(condicion) {
         System.out.println("---------El pedido"+pedido.getId().toString()+" se ha facturadado");
         this.facturacionTotal=facturacionTotal+pedido.getTotalCosto();
@@ -83,16 +64,14 @@ public class ServerGestion extends UnicastRemoteObject implements HacerPedidos {
         
       }
 
-      
-      return condicion; //despues notificamos al cliente DEVOLVIENDO EL OKAY por el return del final de esta funcion
+      return condicion; 
     }
 
 
     public boolean mandarPedidoASubcontratas(Pedido pedido) {
       
       boolean condicion=true;
-      try {
-        
+      try { 
           int port = 1090;
           String nameClienteAExtraer = "Subcontrata";
           int numServerTope=3;
@@ -104,10 +83,8 @@ public class ServerGestion extends UnicastRemoteObject implements HacerPedidos {
               Registry registry = LocateRegistry.getRegistry(port+i);
               Subcontratacion comp = (Subcontratacion) registry.lookup(nameClienteAExtraer+i);
               
-              
               condicion = comp.subcontratarReparto(pedido); //LLAMAMOS A SUBCONTRATA_1,2 O 3
                            
-              
               break; //para que solo el primero que este disponible pueda hacerlo
             }
             catch(java.rmi.ConnectException e){
@@ -131,6 +108,4 @@ public class ServerGestion extends UnicastRemoteObject implements HacerPedidos {
       
       return condicion;
     }
-
-
 }

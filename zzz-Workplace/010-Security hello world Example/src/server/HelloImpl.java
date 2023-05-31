@@ -6,8 +6,6 @@ import common.Hello;
 
 public class HelloImpl extends UnicastRemoteObject implements Hello {
     
-	//extiende UnicastRemoteObject para ser transferible
-	
 	public HelloImpl() throws RemoteException {}
 
     public String sayHello() throws RemoteException {

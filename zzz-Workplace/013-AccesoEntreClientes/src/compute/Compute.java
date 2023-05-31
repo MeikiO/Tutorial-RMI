@@ -3,9 +3,8 @@ package compute;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-import client.DataExtractor;
-import clienteDatos.Baul;
-import clienteDatos.Persona;
+import cliente_datos.Baul;
+import cliente_datos.Persona;
 
 public interface Compute extends Remote {
     Persona executeTask(Task task) throws RemoteException;

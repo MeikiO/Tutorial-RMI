@@ -2,7 +2,6 @@ package _001_cliente;
 
 import java.util.Random;
 import java.util.UUID;
-
 import commons.Pedido;
 
 public class GeneradorPedidos {
@@ -39,6 +38,4 @@ public class GeneradorPedidos {
     return new Pedido(id,producto,bebidas,entrantes,total
     ,false, this.nombreCliente,this.tlf,this.direccion);
   }
-  
-  
 }

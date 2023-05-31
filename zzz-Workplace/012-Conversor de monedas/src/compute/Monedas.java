@@ -28,5 +28,4 @@ public enum Monedas {
 	public String getNombre() {
 		return nombre;
 	}
-	
 }

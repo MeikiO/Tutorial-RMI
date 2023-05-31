@@ -1,28 +1,18 @@
 package server;
 
-import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.UnsupportedEncodingException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-
 import common.Compute;
 
-
-
-
-
 public class Server extends UnicastRemoteObject implements Compute{
-
-
+	
     protected Server() throws RemoteException {
 		super();
 	}
-
-	public static void main(String[] args) {
-        
+	public static void main(String[] args) {   
         try {
         	String name = "TransferenciaArchivos";
             
@@ -42,7 +32,6 @@ public class Server extends UnicastRemoteObject implements Compute{
 
 	@Override
 	public boolean ejecutar(byte[] bs) throws RemoteException {
-
 		boolean condicion=false;
 		try {
 			String mensaje=new String (bs,"UTF-8");
@@ -59,13 +48,4 @@ public class Server extends UnicastRemoteObject implements Compute{
 		
 		return condicion;
 	}
-
-
-
-
-
-
-
-
-
 }

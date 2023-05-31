@@ -31,7 +31,6 @@ public class Pedido implements Serializable {
       Direccion = direccion;
     }
 
-
     public UUID getId() {
       return id;
     }
@@ -104,14 +103,10 @@ public class Pedido implements Serializable {
       Direccion = direccion;
     }
 
-
     @Override
     public String toString() {
       return "Pedido [id=" + id + ", producto=" + producto + ", bebidas=" + bebidas + ", entrantes=" + entrantes
           + ", totalCosto=" + totalCosto + ", estado=" + estado + ", nombreCliente=" + nombreCliente + ", tlf=" + tlf
           + ", Direccion=" + Direccion + "]";
     }
-    
-    
-    
 }

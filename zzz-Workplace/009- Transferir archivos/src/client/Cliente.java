@@ -9,11 +9,8 @@ import java.rmi.registry.Registry;
 
 import common.Compute;
 
-
-
 public class Cliente {
-    public static void main(String args[]) {
-        
+    public static void main(String args[]) {        
         try {
         	Cliente programa=new Cliente();
         	
@@ -28,6 +25,7 @@ public class Cliente {
             
             Compute comp = (Compute) registry.lookup(name); 
             
+            
             boolean resultado=comp.ejecutar(contenido.getBytes());
             
             if(resultado) {
@@ -36,7 +34,6 @@ public class Cliente {
             else {
             	System.out.println("Error, la transferencia no se ha realizado");
             }
-   
             
         } catch (Exception e) {
             System.out.println("Error no se ha podido leer el archivo");
