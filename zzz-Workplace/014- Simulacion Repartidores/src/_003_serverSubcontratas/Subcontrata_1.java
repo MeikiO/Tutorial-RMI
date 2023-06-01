@@ -30,9 +30,9 @@ public class Subcontrata_1 extends UnicastRemoteObject implements Subcontratacio
           Subcontratacion obj = new Subcontrata_1("Hola que tal estas, soy 1");
           registry.rebind(NOMBRESERVER, obj);
 
-            System.out.println("ComputeEngine bound");
+            System.out.println("Subcontrata 1 en marcha: ");
         } catch (Exception e) {
-            System.err.println("ComputeEngine exception:");
+            System.err.println("Problema en el servicio, apagando servidor");
             e.printStackTrace();
         }
     }
