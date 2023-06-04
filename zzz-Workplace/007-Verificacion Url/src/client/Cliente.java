@@ -3,7 +3,7 @@ package client;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-import common.Compute;
+import common.Verificador;
 
 public class Cliente {
 	
@@ -13,7 +13,7 @@ public class Cliente {
             String urlSample="https://docs.oracle.com/javase/tutorial/security/userperm/index.html";
             Registry registry = LocateRegistry.getRegistry(1099);
             
-            Compute comp = (Compute) registry.lookup(name); 
+            Verificador comp = (Verificador) registry.lookup(name); 
             
             String resultado=comp.ejecutar(urlSample);
             

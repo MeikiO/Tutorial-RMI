@@ -3,7 +3,7 @@
 
 me gustaria que me pudieras hacer enlaces bibliograficos, de los siguientes enlaces: 
 
-<enlaces>
+<link>
 
 siguiendo el patron : nombre de pagina (fecha publicación): titulo de la pagina web. última comprobacion : fecha actual . url
 
@@ -11,4 +11,5 @@ siguiendo el patron : nombre de pagina (fecha publicación): titulo de la pagina
 
 
 ------------------------------------
+
 
