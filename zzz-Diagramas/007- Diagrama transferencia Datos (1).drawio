@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net" modified="2023-06-05T17:04:45.037Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 OPR/99.0.0.0" etag="XFRx2vEd0IoqQ--5qtjf" version="21.3.7" type="device">
+  <diagram name="Página-1" id="MlhmUeWpA7BOnsDKHbM-">
+    <mxGraphModel dx="766" dy="533" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Yi9xPrOxkYhz2sqCSwWm-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Yi9xPrOxkYhz2sqCSwWm-1" target="Yi9xPrOxkYhz2sqCSwWm-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Yi9xPrOxkYhz2sqCSwWm-1" value="Datos" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="160" y="170" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Yi9xPrOxkYhz2sqCSwWm-2" value="Servidor" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="300" y="170" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Yi9xPrOxkYhz2sqCSwWm-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Yi9xPrOxkYhz2sqCSwWm-3" target="Yi9xPrOxkYhz2sqCSwWm-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Yi9xPrOxkYhz2sqCSwWm-3" value="Petición" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="440" y="170" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Yi9xPrOxkYhz2sqCSwWm-4" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="200" y="140" as="sourcePoint" />
+            <mxPoint x="340" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Yi9xPrOxkYhz2sqCSwWm-5" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="350" y="140" as="sourcePoint" />
+            <mxPoint x="480" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Yi9xPrOxkYhz2sqCSwWm-9" value="Pasa los datos de 1 persona" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="265" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Yi9xPrOxkYhz2sqCSwWm-10" value="Toma los datos que se han cargado en el servdor" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="480" y="260" width="148" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Yi9xPrOxkYhz2sqCSwWm-11" value="Datos Persona" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="290" y="90" width="100" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
