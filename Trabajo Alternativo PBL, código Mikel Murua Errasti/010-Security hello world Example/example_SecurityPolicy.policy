@@ -1,0 +1,9 @@
+
+// Definimos de donde descarga los datos  
+//grant codebase "file:<path al bin del proyecto actual>" {
+// <permisos aplicados
+//};
+ 
+grant {
+    permission "java.security.AllPermission";
+};

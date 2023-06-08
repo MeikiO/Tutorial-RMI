@@ -1,0 +1,13 @@
+package _001_cliente;
+
+public enum PosiblesOrdenes {
+	CONSULTAR,
+	PASAR,
+	INGRESAR,
+	RETIRAR,
+	TRANSFERENCIA,
+	CONSULTARPRESTAMO,
+	REALIZARPRESTAMO,
+	DEVOLVERPRESTAMO,
+	;
+}
